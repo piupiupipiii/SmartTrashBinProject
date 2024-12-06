@@ -1,0 +1,105 @@
+/* Gaya untuk kontainer utama */
+.main-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+  
+  /* Gaya untuk judul */
+.judul-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.9);
+}
+  
+  /* Wrapper untuk gambar dan statistik */
+.statistics-wrapper {
+    display: flex; /* Flexbox untuk elemen horizontal */
+    align-items: flex-start;
+    gap: 20px; /* Jarak antar elemen */
+    padding: 20px;
+    background-color: rgba(131, 236, 108, 0.332);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+  
+  /* Kontainer gambar */
+.picture-container {
+    display: grid; /* Grid untuk tata letak gambar */
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Atur gambar otomatis */
+    gap: 10px; /* Jarak antar gambar */
+    width: 150px; /* Lebar tetap kontainer gambar */
+    background-color: rgba(125, 250, 83, 0.389);
+    border-radius: 15px;
+    padding: 10px;
+}
+  
+  /* Gambar dalam kontainer */
+.statistics-chart {
+    width: 40px; /* Ukuran gambar kecil */
+    height: 40px; /* Tinggi gambar kecil */
+    object-fit: contain;
+}
+  
+  /* Kontainer statistik */
+.statistics-container {
+    flex: 1; /* Statistik mengambil sisa ruang */
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 15px;
+    background-color: rgba(131, 236, 108, 0.332);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+  
+  /* Kolom umum */
+.date-column, .quantity-column, .category-column {
+    flex: 1;
+    min-width: 180px; /* Lebar minimal */
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+}
+  
+  .column-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+  
+.column-item {
+    margin-top: 5px;
+}
+
+.navbar {
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+  
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+  
+.navbar ul li {
+    margin-right: 15px;
+}
+  
+.navbar ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+  
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+  
