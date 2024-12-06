@@ -98,20 +98,7 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   }
   
-  footer {
-    text-align: center;
-    padding: 15px 0;
-    background: linear-gradient(120deg, #43a047, #2e7d32);
-    color: white;
-    border-radius: 8px;
-    margin-top: 40px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  footer p {
-    margin: 0;
-    font-size: 1rem;
-  }
+
   
   a {
     color: #2e7d32; /* Hijau tua */
