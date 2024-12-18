@@ -9,6 +9,7 @@ Route::get('/mongo-data', [MongoController::class, 'getMongoData']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/statistic', [StatisticController::class, 'index']);
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic');
+Route::get('/fetch-data', [HomeController::class, 'fetchData']);
 
 
 Route::get('/', function () {

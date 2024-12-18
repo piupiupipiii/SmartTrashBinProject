@@ -2,32 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function fetchData()
     {
+        try {
+            // Ambil data dari endpoint API
+            $response = Http::get('https://smart-trashbin-api.onrender.com/api/getdata');
+            $data = $response->json();
 
-        $totalBulanan = 45;
-        $data = [
-            'organik' => [
-                'jarak' => 11,
-                'status' => 'Terisi sebagian',
-                'capacity' => 45,
-            ],
-            'anorganik' => [
-                'jarak' => 27,
-                'status' => 'Hampir penuh',
-                'capacity' => 85,
-            ],
-            'b3' => [
-                'jarak' => 14,
-                'status' => 'Masih kosong',
-                'capacity' => 10,
-            ],
-        ];
-
-        return view('home', compact('totalBulanan', 'data'));
+            return response()->json($data);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to fetch data'], 500);
+        }
     }
 }

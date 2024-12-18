@@ -64,35 +64,107 @@
     </main>
   </div>
 
+  <!-- JavaScript -->
   <script>
-    function fetchData() {
+    $(document).ready(function () {
+      fetchStaticData();
+    });
+
+    function fetchStaticData() {
       $.ajax({
-        url: 'https://smart-trashbin-api.onrender.com/api/getdata',
+        url: 'https://smart-trashbin-api.onrender.com/api/getdata', // Endpoint API localhost Anda
         method: 'GET',
         dataType: 'json',
-        success: function(response) {
-          $('#total-sampah-bulanan').text(response.total_bulanan);
-          $('#organik-jarak').text(response.organik.jarak);
-          $('#organik-status').text(response.organik.status);
-          $('#organik-capacity').css('width', response.organik.capacity + '%');
-          $('#organik-volume').text(response.organik.capacity + '%');
-          $('#anorganik-jarak').text(response.anorganik.jarak);
-          $('#anorganik-status').text(response.anorganik.status);
-          $('#anorganik-capacity').css('width', response.anorganik.capacity + '%');
-          $('#anorganik-volume').text(response.anorganik.capacity + '%');
-          $('#b3-jarak').text(response.b3.jarak);
-          $('#b3-status').text(response.b3.status);
-          $('#b3-capacity').css('width', response.b3.capacity + '%');
-          $('#b3-volume').text(response.b3.capacity + '%');
+        success: function (response) {
+          console.log('Response Data:', response); // Debug respons API
+
+          let data = response; // Data langsung dari API
+          if (!Array.isArray(data)) {
+            console.error('Data tidak valid:', data);
+            alert('Data tidak valid. Periksa format API Anda.');
+            return;
+          }
+
+          const totalBulanan = data.length;
+          $('#total-sampah-bulanan').text(totalBulanan);
+
+          updateStatus(data);
         },
-        error: function() {
-          console.error('Error fetching data.');
+        error: function (xhr, status, error) {
+          console.error('Error fetching data:', status, error);
+          alert('Gagal mengambil data. Periksa server API Anda.');
         }
       });
     }
 
-    setInterval(fetchData, 5000);
-    fetchData();
+    function updateStatus(data) {
+  // Inisialisasi objek untuk kategori dan statusnya
+      const statusData = {
+        organik: { jarak: 0, volume: 0 },
+        anorganik: { jarak: 0, volume: 0 },
+        b3: { jarak: 0, volume: 0 },
+      };
+
+      // Kelompokkan dan hitung jarak per kategori
+      data.forEach(function (item) {
+        let kategori = '';
+        // Tentukan kategori berdasarkan nilai kategori
+        switch (item.kategori) {
+          case 1:
+            kategori = 'organik';
+            break;
+          case 2:
+            kategori = 'anorganik';
+            break;
+          case 3:
+            kategori = 'b3';
+            break;
+          default:
+            return; // Jika kategori tidak dikenali, lewati
+        }
+
+        const jarak = parseFloat(item.jarak); // Pastikan jarak adalah angka
+        if (statusData[kategori] && !isNaN(jarak)) {
+          statusData[kategori].jarak = jarak;
+          // Hitung volume berdasarkan jarak
+          statusData[kategori].volume = Math.min(100, 100 - (jarak / 50 * 100)).toFixed(0);
+        }
+      });
+
+      // Perbarui UI berdasarkan statusData
+      Object.keys(statusData).forEach(function (category) {
+        const jarak = statusData[category].jarak;
+        const volume = statusData[category].volume;
+        let statusText = '';
+        let barColor = ''; // Untuk menyimpan warna bar
+
+        // Menentukan status dan warna bar berdasarkan jarak
+        if (jarak < 10) {
+          statusText = 'Penuh';
+          barColor = 'red'; // Bar merah
+        } else if (jarak >= 10 && jarak <= 20) {
+          statusText = 'Setengah Penuh';
+          barColor = 'yellow'; // Bar kuning
+        } else if (jarak > 20 && jarak < 25) {
+          statusText = 'Tersedia';
+          barColor = 'green'; // Bar hijau
+        }
+
+        $(`#${category}-status`).text(statusText);
+        $(`#${category}-jarak`).text(jarak + ' cm');
+        $(`#${category}-volume`).text(volume + '%');
+        $(`#${category}-capacity`).css({
+          'width': volume + '%',
+          'background-color': barColor // Atur warna bar
+        });
+      });
+    }
+
+
+
+
+
+
   </script>
 </body>
 </html>

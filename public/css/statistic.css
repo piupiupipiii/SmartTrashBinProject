@@ -2,7 +2,7 @@
 .container {
     width: 100%;
     margin: 0 auto;
-    padding: 0;
+    padding: 20px;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
   }
@@ -24,9 +24,14 @@
     align-items: center;
   }
   
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
   header h1 {
-    margin: 0;
-    font-size: 2.8rem;
+    font-size: 24px;
+    color: #4CAF50;
   }
   
   nav ul {
@@ -104,6 +109,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
+
+  
   /* Kolom Statistik */
   .date-column, .quantity-column, .category-column {
     flex: 1;
@@ -136,6 +143,57 @@
     margin-top: 40px;
   }
 
+
+  /* Menata list tanggal di date-column */
+.date-item {
+  padding: 8px;
+  border-bottom: 1px solid #ddd; /* Garis pemisah antar item */
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.date-item:last-child {
+  border-bottom: none; /* Hapus garis pada item terakhir */
+}
+/* Mengatur tampilan pada date-column agar menampilkan data dalam bentuk list */
+.date-column {
+  padding: 10px;
+  display: flex; /* Flexbox untuk menata elemen secara vertikal */
+  flex-direction: column; /* Menata item secara vertikal */
+  gap: 10px; /* Jarak antar item */
+  text-align: center; /* Rata tengah */
+  overflow: visible; /* Tidak ada scroll bar */
+  height: auto; /* Tinggi menyesuaikan isi konten */
+}
+
+/* Mengatur tampilan pada category-column agar menampilkan data dalam bentuk list */
+.category-column {
+  padding: 10px;
+  display: flex; /* Flexbox untuk menata elemen secara vertikal */
+  flex-direction: column; /* Menata item secara vertikal */
+  gap: 10px; /* Jarak antar item */
+  text-align: center; /* Rata tengah */
+  overflow: visible; /* Tidak ada scroll bar */
+  height: auto; /* Tinggi menyesuaikan isi konten */
+}
+
+/* Item dalam category-column dan date-column */
+.date-item, .category-item {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #ddd; /* Garis pemisah antar item */
+  padding: 8px;
+}
+
+/* Menghilangkan garis bawah pada item terakhir */
+.date-item:last-child, .category-item:last-child {
+  border-bottom: none;
+}
+
+
+
   @media (max-width: 768px) {
     .statistics-wrapper {
       flex-direction: column;
@@ -148,4 +206,34 @@
       min-width: 100%;
     }
   }
-  
+
+  .filter-container {
+    display: flex;
+    justify-content: center; /* Pusatkan filter secara horizontal */
+    align-items: center;
+    gap: 15px; /* Jarak antara elemen filter */
+    padding: 10px 0; /* Padding atas dan bawah */
+    margin: 10px 0; /* Margin di atas dan bawah */
+    background-color: rgba(200, 255, 200, 0.3); /* Warna latar soft hijau */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut */
+}
+
+.filter-container label {
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-container select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.filter-container select:focus {
+    border-color: #4CAF50; /* Warna hijau saat fokus */
+}
