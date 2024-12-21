@@ -1,181 +1,165 @@
-/* Gaya Umum untuk Kontainer Utama */
+
 .container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  /* Gaya untuk Header */
-  .main-header {
-    background-color: #2e7d32; /* Warna hijau tua */
-    color: #ffffff;
-    padding: 20px 40px; /* Padding lebih besar untuk jarak dari tepi */
-    display: flex;
-    justify-content: space-between; /* Membuat logo dan menu saling terpisah */
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  header h1 {
-    font-size: 24px;
-    color: #4CAF50;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  nav ul li a {
-    color: #f1f1f1;
-    text-decoration: none;
-    font-size: 1.1rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    transition: color 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    color: #aed581;
-  }
-  
-  
-  /* Gaya untuk Judul Halaman */
-  .judul-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: rgba(0, 0, 0, 0.9);
-  }
-  
-  /* Wrapper untuk Statistik */
-  .statistics-wrapper {
-    display: flex; /* Flexbox untuk elemen horizontal */
-    align-items: flex-start;
-    gap: 20px; /* Jarak antar elemen */
-    padding: 20px;
-    background-color: rgba(131, 236, 108, 0.332);
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Kontainer Gambar */
-  .picture-container {
-    display: grid; /* Grid untuk tata letak gambar */
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Atur gambar otomatis */
-    gap: 10px; /* Jarak antar gambar */
-    width: 150px; /* Lebar tetap kontainer gambar */
-    background-color: rgba(125, 250, 83, 0.389);
-    border-radius: 15px;
-    padding: 10px;
-  }
-  
-  /* Gambar dalam Kontainer */
-  .statistics-chart {
-    width: 40px; /* Ukuran gambar kecil */
-    height: 40px; /* Tinggi gambar kecil */
-    object-fit: contain;
-  }
-  
-  /* Kontainer Statistik */
-  .statistics-container {
-    flex: 1; /* Statistik mengambil sisa ruang */
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 15px;
-    background-color: rgba(131, 236, 108, 0.332);
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-
-  
-  /* Kolom Statistik */
-  .date-column, .quantity-column, .category-column {
-    flex: 1;
-    min-width: 180px; /* Lebar minimal */
-    padding: 10px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .column-header {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .column-item {
-    margin-top: 5px;
-  }
-  
-  /* Gaya untuk Body dan Main Section */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  main {
-    margin-top: 40px;
-  }
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
 
-  /* Menata list tanggal di date-column */
+.main-header {
+  background-color: #2e7d32; 
+  color: #ffffff;
+  padding: 20px 40px; /* Padding lebih besar untuk jarak dari tepi */
+  display: flex;
+  justify-content: space-between; /* Membuat logo dan menu saling terpisah */
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 24px;
+  color: #4CAF50;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #aed581;
+}
+
+.judul-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.statistics-wrapper {
+  width: 100%; 
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex; /* Mengatur elemen anak secara horizontal */
+  justify-content: space-between; /* Sebarkan elemen ke kiri dan kanan */
+  align-items: flex-start; /* Atur elemen sejajar di atas */
+  gap: 15px;
+  padding: 20px;
+  background-color: rgba(131, 236, 108, 0.332);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.picture-container {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); 
+  gap: 15px; 
+  width: 100%; 
+  max-width: 600px;
+  background-color: rgba(125, 250, 83, 0.389);
+  border-radius: 15px;
+  padding: 20px; 
+}
+
+
+.statistics-chart {
+  width: 40px; 
+  height: 40px; 
+  object-fit: contain;
+}
+
+.statistics-container {
+  display: flex;
+  justify-content: space-between; /* Sebarkan kolom secara horizontal */
+  gap: 20px;
+  flex-wrap: wrap; /* Agar responsif pada layar kecil */
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(131, 236, 108, 0.332);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.date-column, .quantity-column, .category-column {
+  flex: 1;
+  min-width: 200px; 
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.column-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.column-item {
+  margin-top: 5px;
+}
+
+
 .date-item {
   padding: 8px;
-  border-bottom: 1px solid #ddd; /* Garis pemisah antar item */
+  border-bottom: 1px solid #ddd; 
   text-align: center;
   font-size: 14px;
   color: #333;
 }
 
 .date-item:last-child {
-  border-bottom: none; /* Hapus garis pada item terakhir */
+  border-bottom: none; 
 }
+
 /* Mengatur tampilan pada date-column agar menampilkan data dalam bentuk list */
 .date-column {
   padding: 10px;
-  display: flex; /* Flexbox untuk menata elemen secara vertikal */
-  flex-direction: column; /* Menata item secara vertikal */
-  gap: 10px; /* Jarak antar item */
-  text-align: center; /* Rata tengah */
-  overflow: visible; /* Tidak ada scroll bar */
-  height: auto; /* Tinggi menyesuaikan isi konten */
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+  text-align: center; 
+  overflow: visible; 
+  height: auto;
 }
 
 /* Mengatur tampilan pada category-column agar menampilkan data dalam bentuk list */
 .category-column {
   padding: 10px;
-  display: flex; /* Flexbox untuk menata elemen secara vertikal */
-  flex-direction: column; /* Menata item secara vertikal */
-  gap: 10px; /* Jarak antar item */
-  text-align: center; /* Rata tengah */
-  overflow: visible; /* Tidak ada scroll bar */
-  height: auto; /* Tinggi menyesuaikan isi konten */
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px;
+  text-align: center;
+  overflow: visible; 
+  height: auto;
 }
 
 /* Item dalam category-column dan date-column */
@@ -183,57 +167,103 @@
   text-align: center;
   font-size: 14px;
   color: #333;
-  border-bottom: 1px solid #ddd; /* Garis pemisah antar item */
+  border-bottom: 1px solid #ddd; 
   padding: 8px;
 }
 
-/* Menghilangkan garis bawah pada item terakhir */
 .date-item:last-child, .category-item:last-child {
   border-bottom: none;
 }
 
+.filter-wrapper {
+  display: flex;
+  flex-direction: column; 
+  gap: 15px;
+  width: 100%; 
+  padding: 10px;
+  border-radius: 10px;
+}
 
 
-  @media (max-width: 768px) {
-    .statistics-wrapper {
-      flex-direction: column;
-      gap: 10px;
-    }
-    .statistics-container {
-      flex-direction: column;
-    }
-    .date-column, .quantity-column, .category-column {
-      min-width: 100%;
-    }
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.filter-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row; /* Susun secara horizontal */
+  align-items: center;  
+  justify-content: flex-start; /* Mulai dari kiri */
+  gap: 20px; /* Jarak antar elemen */
+  width: 100%; /* Gunakan lebar penuh */
+  padding: 10px;
+  background-color: rgba(200, 255, 200, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.filter-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.filter-date,
+.filter-category {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  width: 200px; /* Atur lebar yang konsisten */
+}
+
+
+.filter-select {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 150px;
+  cursor: pointer;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .statistics-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .picture-container {
+    grid-template-columns: repeat(2, 1fr); 
   }
 
   .filter-container {
-    display: flex;
-    justify-content: center; /* Pusatkan filter secara horizontal */
-    align-items: center;
-    gap: 15px; /* Jarak antara elemen filter */
-    padding: 10px 0; /* Padding atas dan bawah */
-    margin: 10px 0; /* Margin di atas dan bawah */
-    background-color: rgba(200, 255, 200, 0.3); /* Warna latar soft hijau */
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut */
-}
+    flex-direction: column; 
+    align-items: flex-start;
+    gap: 15px;
+  }
 
-.filter-container label {
-    font-weight: bold;
-    color: #333;
-}
+  .filter-item {
+    width: 100%;
+  }
 
-.filter-container select {
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.3s;
-}
+  .filter-date,
+  .filter-category {
+    width: 100%;
+  }
 
-.filter-container select:focus {
-    border-color: #4CAF50; /* Warna hijau saat fokus */
+  .statistics-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .date-column, .category-column {
+    width: 100%; /* Lebar penuh untuk kolom di layar kecil */
+  }
 }

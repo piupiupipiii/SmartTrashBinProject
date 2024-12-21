@@ -6,9 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Statistik Masukkan Sampah</title>
     <link rel="stylesheet" href="{{ asset('css/statistic.css') }}">
+    <style>
+        /* Gaya untuk Filter Container */
+        .filter-container {
+            display: flex;
+            justify-content: center; /* Pusatkan filter secara horizontal */
+            align-items: center;
+            gap: 15px; /* Jarak antara elemen filter */
+            padding: 10px 0; /* Padding atas dan bawah */
+            margin: 10px 0; /* Margin di atas dan bawah */
+            background-color: rgba(200, 255, 200, 0.3); /* Warna latar soft hijau */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-container label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .filter-container select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .filter-container select:focus {
+            border-color: #4CAF50; /* Warna hijau saat fokus */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <header class="main-header">
             <h1>Smart Trash Bin</h1>
             <nav>
@@ -19,6 +53,7 @@
             </nav>
         </header>
 
+        <!-- Main Content -->
         <main>
             <div class="statistics-wrapper">
                 <div class="picture-container">
@@ -26,19 +61,43 @@
                     <img src="{{ asset('image/trash.png') }}" alt="Statistik Gambar 2" class="statistics-chart">
                     <img src="{{ asset('image/stats.png') }}" alt="Statistik Gambar 3" class="statistics-chart">
                     <img src="{{ asset('image/leaf.png') }}" alt="Statistik Gambar 4" class="statistics-chart">
-                    <img src="{{ asset('image/leaf.png') }}" alt="Statistik Gambar 5" class="statistics-chart">
+                    <img src="{{ asset('image/trash.png') }}" alt="Statistik Gambar 5" class="statistics-chart">
+                    <img src="{{ asset('image/stats.png') }}" alt="Statistik Gambar 6" class="statistics-chart">
+                    <img src="{{ asset('image/leaf.png') }}" alt="Statistik Gambar 7" class="statistics-chart">
+                    <img src="{{ asset('image/trash.png') }}" alt="Statistik Gambar 8" class="statistics-chart">
+                    <img src="{{ asset('image/stats.png') }}" alt="Statistik Gambar 9" class="statistics-chart">
+                    <img src="{{ asset('image/leaf.png') }}" alt="Statistik Gambar 10" class="statistics-chart">
                 </div>
+
+                <!-- Filter Container -->
+                <div class="filter-container">
+                    <div class="filter-date">
+                        <label for="filter-date">Filter Tanggal:</label>
+                        <select id="filter-date" class="filter-select">
+                            <option value="all">Semua</option>
+                            <option value="today">Hari Ini</option>
+                            <option value="week">Minggu Ini</option>
+                            <option value="month">Bulan Ini</option>
+                        </select>
+                    </div>
+                    <div class="filter-category">
+                        <label for="filter-category">Filter Kategori:</label>
+                        <select id="filter-category" class="filter-select">
+                            <option value="all">Semua</option>
+                            <option value="Organik">Organik</option>
+                            <option value="Anorganik">Anorganik</option>
+                            <option value="B3">B3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+                
                 <div class="statistics-container">
                     <div class="date-column">
                         <div class="column-header">Tanggal</div>
-                        <!-- Data timestamp akan ditambahkan di sini -->
-                    </div>
-                    <div class="quantity-column">
-                        <div class="column-header">Jumlah Sampah Dimasukkan</div>
                     </div>
                     <div class="category-column">
                         <div class="column-header">Kategori</div>
-                        <!-- Data kategori akan ditambahkan di sini -->
                     </div>
                 </div>
             </div>
@@ -54,14 +113,13 @@
     <script>
         const API_URL = "https://smart-trashbin-api.onrender.com/api/getdata";
 
-        // Mapping kode kategori ke teks
         const kategoriMap = {
             1: "Organik",
             2: "Anorganik",
             3: "B3",
         };
 
-        // Fetch data API dan tampilkan ke date-column dan category-column
+        // Fetch data API dan tampilkan di kolom
         function fetchData() {
             $.ajax({
                 url: API_URL,
@@ -69,11 +127,7 @@
                 dataType: "json",
                 success: function(response) {
                     console.log("Data API:", response);
-                    if (response.length > 0) {
-                        populateColumns(response);
-                    } else {
-                        console.error("Data kosong.");
-                    }
+                    populateColumns(response);
                 },
                 error: function(err) {
                     console.error("Gagal mengambil data:", err);
@@ -81,64 +135,68 @@
             });
         }
 
-        // Fungsi menambahkan timestamp dan kategori ke kolom
         function populateColumns(data) {
-            let dateColumnContent = "";
-            let categoryColumnContent = "";
+            let dateContent = "";
+            let categoryContent = "";
 
             data.forEach((item) => {
-                dateColumnContent += `
-                    <div class="date-item">${item.timestamp}</div>
-                `;
-                categoryColumnContent += `
-                    <div class="category-item">${kategoriMap[item.kategori] || "Tidak Diketahui"}</div>
-                `;
+                dateContent += `<div class="date-item">${item.timestamp}</div>`;
+                categoryContent += `<div class="category-item">${kategoriMap[item.kategori] || "Tidak Diketahui"}</div>`;
             });
 
-            // Tambahkan konten ke dalam kolom masing-masing
-            $(".date-column").append(dateColumnContent);
-            $(".category-column").append(categoryColumnContent);
+            $(".date-column").append(dateContent);
+            $(".category-column").append(categoryContent);
         }
 
-        // Koneksi ke MQTT broker untuk data real-time
-        function connectMQTT() {
-            const client = mqtt.connect("wss://broker.hivemq.com:8000/mqtt");
-            const topic = "smart-trashbin";
+        function filterData() {
+            const selectedFilter = $("#filter-date").val(); // Perbaikan ID
+            const selectedCategory = $("#filter-category").val(); // Perbaikan ID
 
-            client.on("connect", function () {
-                console.log("Terhubung ke MQTT Broker");
-                client.subscribe(topic, function (err) {
-                    if (!err) {
-                        console.log("Berlangganan topik:", topic);
+            $.ajax({
+                url: API_URL,
+                method: "GET",
+                dataType: "json",
+                success: function(response) {
+                    let filteredData = response;
+
+                    // Filter tanggal
+                    if (selectedFilter !== "all") {
+                        const now = new Date();
+                        filteredData = response.filter((item) => {
+                            const date = new Date(item.timestamp);
+                            if (selectedFilter === "today") {
+                                return date.toDateString() === now.toDateString();
+                            } else if (selectedFilter === "week") {
+                                const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
+                                const endOfWeek = new Date(now.setDate(startOfWeek.getDate() + 6));
+                                return date >= startOfWeek && date <= endOfWeek;
+                            } else if (selectedFilter === "month") {
+                                return date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear();
+                            }
+                        });
                     }
-                });
-            });
 
-            client.on("message", function (topic, message) {
-                const newData = JSON.parse(message.toString());
-                console.log("Data MQTT:", newData);
-                appendRealTimeData(newData);
+                    // Filter kategori
+                    if (selectedCategory !== "all") {
+                        filteredData = filteredData.filter(
+                            (item) => kategoriMap[item.kategori] === selectedCategory
+                        );
+                    }
+
+                    populateColumns(filteredData);
+                },
             });
         }
 
-        // Fungsi menambahkan data baru dari MQTT ke kolom
-        function appendRealTimeData(newData) {
-            const dateItem = `
-                <div class="date-item">${newData.timestamp}</div>
-            `;
-            const categoryItem = `
-                <div class="category-item">${kategoriMap[newData.kategori] || "Tidak Diketahui"}</div>
-            `;
-
-            $(".date-column").append(dateItem);
-            $(".category-column").append(categoryItem);
-        }
-
-        // Eksekusi saat dokumen siap
         $(document).ready(function () {
-            fetchData(); // Ambil data awal dari API
-            connectMQTT(); // Hubungkan ke MQTT Broker
+            fetchData();
+
+            // Event handler untuk dropdown filter
+            $("#filter-date, #filter-category").change(function () {
+                filterData();
+            });
         });
+
     </script>
 </body>
 </html>

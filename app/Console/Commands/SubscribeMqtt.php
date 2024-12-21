@@ -31,7 +31,7 @@ class SubscribeMqtt extends Command
         $mqtt->subscribe('trashbin/pintu', function (string $topic, string $message) {
             echo sprintf('Received QoS level 1 message on topic [%s]: %s', $topic, $message);
         }, 1);
-        $mqtt->subscribe('trashbin/data', function (string $topic, string $message) {
+        $mqtt->subscribe('trashbin/get-data', function (string $topic, string $message) {
             echo sprintf('Received QoS level 1 message on topic [%s]: %s', $topic, $message);
         }, 1);
         $mqtt->loop(true);
