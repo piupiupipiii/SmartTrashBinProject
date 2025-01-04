@@ -2,6 +2,10 @@
 
 @section('title', 'Statistics - Smart Trash Bin')
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+<link rel="stylesheet" href="{{ asset('css/statistic.css') }}">
+@endpush
 
 @section('content')
             <div class="statistics-wrapper">
@@ -51,8 +55,8 @@
                 </div>
             </div>
 @endsection
-<link rel="stylesheet" href="{{ asset('css/statistic.css') }}">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@push('scripts')
     <!-- MQTT.js -->
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 
@@ -144,5 +148,4 @@
         });
 
     </script>
-</body>
-</html>
+@endpush

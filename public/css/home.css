@@ -124,7 +124,7 @@ body {
   
   .capacity-fill {
     height: 100%;
-    background-color: #5CB338;
+    background-color: #669b49;
     width: 0%;
     transition: width 0.5s ease;
   }
@@ -146,11 +146,11 @@ body {
   }
   
   #status-indicator-organik.green {
-    background-color: #66bb6a; 
+    background-color: #96e072; 
   }
   
   #status-indicator-anorganik.green {
-    background-color: #66bb6a; 
+    background-color: #96e072; 
   }
   
   #status-indicator-organik.yellow {

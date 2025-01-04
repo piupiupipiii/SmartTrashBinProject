@@ -40,12 +40,12 @@
 }
 
 .navbar li a:hover {
-    color: #EFE3C2;
+    color: #95d051;
     text-decoration: underline;
 }
 
 .navbar li.active a {
-    color: #EFE3C2;
+    color: #95d051;
     text-decoration: underline;
 }
 

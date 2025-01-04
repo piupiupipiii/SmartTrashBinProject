@@ -2,7 +2,9 @@
 
 @section('title', 'Home - Smart Trash Bin')
 
-@section('content')
+@push('styles')
+  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+@endpush
 
 @section('content')
       <section class="monthly-status">
@@ -28,7 +30,7 @@
 
         <div class="status-section">
           <h3>Anorganik</h3>
-          <p>Jarak: <span id="anorganik-jarak">Loading...</span> cm</p>
+          <p>Jarak: <span id="anorganik-jarak">Loading...</span></p>
           <p>Status: <span id="anorganik-status">Loading...</span></p>
           <div class="capacity-bar">
             <div id="anorganik-capacity" class="capacity-fill" style="width: 0%;"></div>
@@ -38,7 +40,7 @@
 
         <div class="status-section">
           <h3>B3</h3>
-          <p>Jarak: <span id="b3-jarak">Loading...</span> cm</p>
+          <p>Jarak: <span id="b3-jarak">Loading...</span></p>
           <p>Status: <span id="b3-status">Loading...</span></p>
           <div class="capacity-bar">
             <div id="b3-capacity" class="capacity-fill" style="width: 0%;"></div>
@@ -48,9 +50,7 @@
       </section>
 @endsection
 
-  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+@push('scripts')
   <!-- JavaScript -->
   <script>
     $(document).ready(function () {
@@ -146,5 +146,4 @@
       });
     }
   </script>
-</body>
-</html>
+@endpush
