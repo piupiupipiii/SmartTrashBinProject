@@ -1,60 +1,9 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Statistik Masukkan Sampah</title>
-    <link rel="stylesheet" href="{{ asset('css/statistic.css') }}">
-    <style>
-        /* Gaya untuk Filter Container */
-        .filter-container {
-            display: flex;
-            justify-content: center; /* Pusatkan filter secara horizontal */
-            align-items: center;
-            gap: 15px; /* Jarak antara elemen filter */
-            padding: 10px 0; /* Padding atas dan bawah */
-            margin: 10px 0; /* Margin di atas dan bawah */
-            background-color: rgba(200, 255, 200, 0.3); /* Warna latar soft hijau */
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+@extends('layouts.app')
 
-        .filter-container label {
-            font-weight: bold;
-            color: #333;
-        }
+@section('title', 'Statistics - Smart Trash Bin')
 
-        .filter-container select {
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-            cursor: pointer;
-            outline: none;
-            transition: border-color 0.3s;
-        }
 
-        .filter-container select:focus {
-            border-color: #4CAF50; /* Warna hijau saat fokus */
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header class="main-header">
-            <h1>Smart Trash Bin</h1>
-            <nav>
-                <ul>
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ url('/statistic') }}">Statistics</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Main Content -->
-        <main>
+@section('content')
             <div class="statistics-wrapper">
                 <div class="picture-container">
                     <img src="{{ asset('image/leaf.png') }}" alt="Statistik Gambar 1" class="statistics-chart">
@@ -101,11 +50,9 @@
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@endsection
+<link rel="stylesheet" href="{{ asset('css/statistic.css') }}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- MQTT.js -->
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 
@@ -119,7 +66,6 @@
             3: "B3",
         };
 
-        // Fetch data API dan tampilkan di kolom
         function fetchData() {
             $.ajax({
                 url: API_URL,
@@ -149,8 +95,8 @@
         }
 
         function filterData() {
-            const selectedFilter = $("#filter-date").val(); // Perbaikan ID
-            const selectedCategory = $("#filter-category").val(); // Perbaikan ID
+            const selectedFilter = $("#filter-date").val(); 
+            const selectedCategory = $("#filter-category").val(); 
 
             $.ajax({
                 url: API_URL,

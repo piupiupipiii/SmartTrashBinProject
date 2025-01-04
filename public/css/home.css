@@ -15,7 +15,7 @@ body {
   header {
     background: linear-gradient(120deg, #4caf50, #388e3c);
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px #ffffff;
     padding: 25px 0;
     text-align: center;
     border-radius: 10px;
@@ -27,28 +27,7 @@ body {
     font-size: 2.8rem;
   }
   
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  nav ul li a {
-    color: #f1f1f1;
-    text-decoration: none;
-    font-size: 1.1rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    transition: color 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    color: #aed581;
-  }
+
   
   main {
     margin-top: 40px;
@@ -78,7 +57,7 @@ body {
   #volume-sampah,
   #status-tong-sampah {
     font-weight: bold;
-    color: #43a047;
+    color: #3f8521;
   }
   
   button {
@@ -101,23 +80,22 @@ body {
 
   
   a {
-    color: #2e7d32; /* Hijau tua */
-    text-decoration: none; /* Menghapus garis bawah */
+    color: #123524;
+    text-decoration: none;
   }
   
   a:hover {
-    color: #1b5e20; /* Warna hijau lebih gelap untuk efek hover */
-    text-decoration: underline; /* Tambahkan garis bawah saat hover */
+    color: #123524;
+    text-decoration: underline; 
   }
   
-  /* Gaya untuk link 'More' */
   .more-link {
-    text-align: right; /* Posisi kanan */
-    margin-top: 10px; /* Spasi antara elemen */
+    text-align: right;
+    margin-top: 10px;
   }
   
   .more-link a {
-    color: #00695c; /* Warna hijau gelap yang lembut */
+    color: #00695c;
     font-weight: bold;
     text-decoration: none;
     font-size: 1rem;
@@ -146,8 +124,8 @@ body {
   
   .capacity-fill {
     height: 100%;
-    background-color: #66bb6a;
-    width: 0%; /* Diatur dinamis menggunakan JavaScript */
+    background-color: #5CB338;
+    width: 0%;
     transition: width 0.5s ease;
   }
   
@@ -156,7 +134,6 @@ body {
     color: #43a047;
   }
   
-  /* Status indicator */
   .status-indicator {
     padding: 20px;
     text-align: center;

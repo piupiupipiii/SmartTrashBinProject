@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Trash Bin</title>
-  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <h1>Smart Trash Bin</h1>
-      <nav>
-        <ul>
-          <li><a href="{{ url('/home') }}">Home</a></li>
-          <li><a href="{{ url('/statistic') }}">Statistics</a></li>
-        </ul>
-      </nav>
-    </header>
+@extends('layouts.app')
 
-    <main>
+@section('title', 'Home - Smart Trash Bin')
+
+@section('content')
+
+@section('content')
       <section class="monthly-status">
         <h2>Jumlah Sampah Bulanan</h2>
         <p><strong>Total Sampah Bulan Ini:</strong> <span id="total-sampah-bulanan">Loading...</span> kali</p>
@@ -33,7 +18,7 @@
 
         <div class="status-section">
           <h3>Organik</h3>
-          <p>Jarak: <span id="organik-jarak">Loading...</span> cm</p>
+          <p>Jarak: <span id="organik-jarak">Loading...</span></p>
           <p>Status: <span id="organik-status">Loading...</span></p>
           <div class="capacity-bar">
             <div id="organik-capacity" class="capacity-fill" style="width: 0%;"></div>
@@ -61,8 +46,10 @@
           <p>Volume: <span id="b3-volume">0%</span></p>
         </div>
       </section>
-    </main>
-  </div>
+@endsection
+
+  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- JavaScript -->
   <script>
@@ -98,7 +85,6 @@
     }
 
     function updateStatus(data) {
-  // Inisialisasi objek untuk kategori dan statusnya
       const statusData = {
         organik: { jarak: 0, volume: 0 },
         anorganik: { jarak: 0, volume: 0 },
@@ -159,12 +145,6 @@
         });
       });
     }
-
-
-
-
-
-
   </script>
 </body>
 </html>
