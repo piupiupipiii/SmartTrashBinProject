@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home - Smart Trash Bin')
+@section('title', 'Home - Segre Bin')
 
 @push('styles')
   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -8,8 +8,8 @@
 
 @section('content')
       <section class="monthly-status">
-        <h2>Jumlah Sampah Bulanan</h2>
-        <p><strong>Total Sampah Bulan Ini:</strong> <span id="total-sampah-bulanan">Loading...</span> kali</p>
+        <h2>Jumlah Sampah Total</h2>
+        <p><strong>Total Masukkan Sampah:</strong> <span id="total-sampah-bulanan">Loading...</span> kali</p>
         <p class="more-link">
           <a href="{{ url('/statistic') }}">More <span class="arrow">&rarr;</span></a>
         </p>

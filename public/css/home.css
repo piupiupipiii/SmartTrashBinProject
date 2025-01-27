@@ -6,7 +6,7 @@ body {
   }
   
   .container {
-    width: 90%;
+    width: 120%;
     max-width: 1100px;
     margin: 20px auto;
     padding: 0 15px;
@@ -124,7 +124,7 @@ body {
   
   .capacity-fill {
     height: 100%;
-    background-color: #669b49;
+    background-color: #4cea1789;
     width: 0%;
     transition: width 0.5s ease;
   }
