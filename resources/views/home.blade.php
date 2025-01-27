@@ -59,13 +59,13 @@
 
     function fetchStaticData() {
       $.ajax({
-        url: 'https://smart-trashbin-api.onrender.com/api/getdata', // Endpoint API localhost Anda
+        url: 'https://smart-trashbin-api.onrender.com/api/getdata', 
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-          console.log('Response Data:', response); // Debug respons API
+          console.log('Response Data:', response); 
 
-          let data = response; // Data langsung dari API
+          let data = response; 
           if (!Array.isArray(data)) {
             console.error('Data tidak valid:', data);
             alert('Data tidak valid. Periksa format API Anda.');
@@ -91,10 +91,8 @@
         b3: { jarak: 0, volume: 0 },
       };
 
-      // Kelompokkan dan hitung jarak per kategori
       data.forEach(function (item) {
         let kategori = '';
-        // Tentukan kategori berdasarkan nilai kategori
         switch (item.kategori) {
           case 1:
             kategori = 'organik';
@@ -106,25 +104,22 @@
             kategori = 'b3';
             break;
           default:
-            return; // Jika kategori tidak dikenali, lewati
+            return; 
         }
 
-        const jarak = parseFloat(item.jarak); // Pastikan jarak adalah angka
+        const jarak = parseFloat(item.jarak);
         if (statusData[kategori] && !isNaN(jarak)) {
           statusData[kategori].jarak = jarak;
-          // Hitung volume berdasarkan jarak
           statusData[kategori].volume = Math.min(100, 100 - (jarak / 50 * 100)).toFixed(0);
         }
       });
 
-      // Perbarui UI berdasarkan statusData
       Object.keys(statusData).forEach(function (category) {
         const jarak = statusData[category].jarak;
         const volume = statusData[category].volume;
         let statusText = '';
-        let barColor = ''; // Untuk menyimpan warna bar
+        let barColor = ''; 
 
-        // Menentukan status dan warna bar berdasarkan jarak
         if (jarak < 10) {
           statusText = 'Penuh';
           barColor = 'red'; // Bar merah
@@ -141,7 +136,7 @@
         $(`#${category}-volume`).text(volume + '%');
         $(`#${category}-capacity`).css({
           'width': volume + '%',
-          'background-color': barColor // Atur warna bar
+          'background-color': barColor 
         });
       });
     }

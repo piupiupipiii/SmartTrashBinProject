@@ -102,16 +102,15 @@ body {
   }
   
   .more-link a:hover {
-    color: #004d40; /* Warna hijau lebih gelap saat hover */
+    color: #004d40; 
     text-decoration: underline;
   }
   
   .more-link .arrow {
-    margin-left: 5px; /* Spasi antara teks dan panah */
+    margin-left: 5px;
     font-size: 1.2rem;
   }
   
-  /* Gaya untuk bar kapasitas tong sampah */
   .capacity-bar {
     position: relative;
     width: 100%;
@@ -154,18 +153,18 @@ body {
   }
   
   #status-indicator-organik.yellow {
-    background-color: #fdd835; /* Kuning */
+    background-color: #fdd835;
   }
   
   #status-indicator-anorganik.yellow {
-    background-color: #fdd835; /* Kuning */
+    background-color: #fdd835; 
   }
   
   #status-indicator-organik.red {
-    background-color: #e53935; /* Merah */
+    background-color: #e53935;
   }
   
   #status-indicator-anorganik.red {
-    background-color: #e53935; /* Merah */
+    background-color: #e53935; 
   }
   

@@ -34,12 +34,6 @@
                 <option value="B3">B3</option>
             </select>
         </div>
-        <!-- Tombol Cari -->
-        <!-- <div class="search-button-container">
-            <button id="search-button" class="search-button">
-                Cari
-            </button>
-        </div> -->
     </div>
 </div>
     
@@ -75,14 +69,12 @@
             success: function (response) {
                 console.log("Data API:", response);
                 
-                // Urutkan data berdasarkan filter order
                 if (order === "latest") {
                     response.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
                 } else if (order === "oldest") {
                     response.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
                 }
 
-                // Filter kategori jika dipilih
                 if (category !== "all") {
                     const kategoriKey = Object.keys(kategoriMap).find(
                         (key) => kategoriMap[key] === category
@@ -117,17 +109,14 @@
     }
 
     $(document).ready(function () {
-        // Ambil data default (terbaru dan semua kategori)
         fetchData();
 
-        // Event ketika filter berubah
         $("#filter-order, #filter-category").change(function () {
             const order = $("#filter-order").val();
             const category = $("#filter-category").val();
             fetchData(order, category);
         });
 
-        // Tombol search untuk eksekusi ulang filter
         $("#search-button").click(function () {
             const order = $("#filter-order").val();
             const category = $("#filter-category").val();

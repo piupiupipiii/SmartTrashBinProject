@@ -75,9 +75,9 @@ header h1 {
 
 .statistics-container {
   display: flex;
-  justify-content: space-between; /* Sebarkan kolom secara horizontal */
+  justify-content: space-between; 
   gap: 20px;
-  flex-wrap: wrap; /* Agar responsif pada layar kecil */
+  flex-wrap: wrap; 
   width: 100%;
   padding: 15px;
   background-color: rgba(131, 236, 108, 0.332);
@@ -116,7 +116,6 @@ header h1 {
   border-bottom: none; 
 }
 
-/* Mengatur tampilan pada date-column agar menampilkan data dalam bentuk list */
 .date-column {
   padding: 10px;
   display: flex; 
@@ -127,7 +126,6 @@ header h1 {
   height: auto;
 }
 
-/* Mengatur tampilan pada category-column agar menampilkan data dalam bentuk list */
 .category-column {
   padding: 10px;
   display: flex; 
@@ -138,7 +136,6 @@ header h1 {
   height: auto;
 }
 
-/* Item dalam category-column dan date-column */
 .date-item, .category-item {
   text-align: center;
   font-size: 14px;
@@ -170,11 +167,11 @@ header h1 {
 .filter-container {
   display: flex;
   flex: 1;
-  flex-direction: row; /* Susun secara horizontal */
+  flex-direction: row; 
   align-items: center;  
-  justify-content: flex-start; /* Mulai dari kiri */
-  gap: 20px; /* Jarak antar elemen */
-  width: 100%; /* Gunakan lebar penuh */
+  justify-content: flex-start;
+  gap: 20px;
+  width: 100%;
   padding: 10px;
   background-color: rgba(200, 255, 200, 0.3);
   border-radius: 10px;
@@ -194,7 +191,7 @@ header h1 {
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
-  width: 200px; /* Atur lebar yang konsisten */
+  width: 200px; 
 }
 
 

@@ -20,15 +20,15 @@
 }
 
 .navbar h1 {
-    color: #000000; /* Warna putih untuk teks "Smart Trash Bin" */
+    color: #000000; 
     margin: 0;
-    font-size: 24px; /* Opsional, untuk memastikan ukuran font yang sesuai */
+    font-size: 24px;
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
-    gap: 15px; /* Menjaga jarak antar elemen navbar */
+    gap: 15px;
     margin: 0;
     padding: 0;
 }
@@ -42,8 +42,8 @@
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
-    padding: 8px 15px; /* Memperbesar area klik untuk navigasi */
-    border-radius: 5px; /* Menambahkan sedikit rounded pada link */
+    padding: 8px 15px;
+    border-radius: 5px;
 }
 
 .navbar li a:hover {
@@ -56,10 +56,9 @@
     text-decoration: underline;
 }
 
-/* Konten Utama */
 .content-container {
     max-width: 1200px;
-    margin: 20px auto; /* Menjaga margin atas dan bawah tetap konsisten */
+    margin: 20px auto;
     padding: 10px;
     background-color: #f8f9fa;
     border-radius: 8px;
@@ -71,11 +70,11 @@
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        gap: 10px; /* Menjaga spasi antar item navbar pada layar kecil */
+        gap: 10px; 
         text-align: center;
     }
 
     .content-container {
-        padding: 15px; /* Mengurangi padding pada layar kecil */
+        padding: 15px; 
     }
 }
